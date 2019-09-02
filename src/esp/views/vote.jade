@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    script(type='text/javascript' src='/assets/js/vote.js')
+
+    div.container#voteDisplay
+
+        div.row
+            div.col-md-12
+                h1
+                    center#electionName
+        div.row
+            div.col-md-12#voteMsg
+        form#voteEmail
+            h3.text-danger Type in you email to get the vote link.
+            div.input-group
+                input.form-control(type='email' name='email' placeholder='Bob@example.com' required)
+                span.input-group-btn
+                    button.btn.btn-default(type='submit') Get the vote link
+            div.row
+                div.col-md-12#voteEmailMsg
+        form#voteForm
+            div.row
+                div.col-md-12
+                    h3 Positions
+                div.col-md-12#electionPosition
+            div.row
+                div.col-md-12#voteStatusMsg
+            div.row
+                div.col-sm-12
+                    input.btn.btn-primary#VoteButton(type='submit' name='submit' value='Vote' disabled)
+
+    div#voteProgress(style='display: none')
+        div.panel.panel-default#voteProgressContent
+            div.panel-heading Voting in Progress
+            div.panel-body
+                div.progress
+                    div#voteProgressBar.progress-bar.progress-bar-success.progress-bar-striped.active(role='progressbar' style='width:0%;') 0%

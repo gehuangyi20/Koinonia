@@ -1,0 +1,101 @@
+extends layout
+
+block content
+    script(type='text/javascript' src='/assets/js/election.js')
+
+    div.container#electionDisplay
+        div.row
+            div.col-md-12
+                h1
+                    center#electionName
+        div.row
+            div.col-md-12
+                h3 Positions
+            div.col-md-12#electionPosition
+
+        div.row
+            div.col-md-12
+                h3 ESP Tunnel Port:
+                    span#espTunnelPort
+        div.row
+            div.col-md-12
+                h3 Authority Server
+                table.table.table-striped.table-hover
+                    thead
+                        tr
+                            th Server Url
+                            th Tunnel Port
+                    tbody
+                        tr
+                            td#authUrl
+                            td#authTunnelPort
+        div.row
+            div.col-md-12
+                h3 Teller
+            div.col-md-12
+                form#tellerRegistration(style="display:none; padding-left:10px;")
+                    div.row
+                        div.col-md-12
+                            label(for='url') Teller Url
+                            input.form-control(type='text' name='url' placeholder='http://www.example.com')
+                    <br/>
+                    div.row
+                        div.col-md-12
+                            label(for='tunnelPort') Teller Tunnel Port
+                            input.form-control(type='text' name='tunnelPort' placeholder='1-65535')
+                    <br/>
+                    div.row
+                        div.col-md-12
+                            button.btn.btn-primary(type='submit') Register
+                            button.btn.btn-primary#tellerFreeze(type='button') Freeze Tellers
+                    <br/>
+                div#tellerRegistrationMsg(style="display:none")
+            div.col-md-12
+                table.table.table-striped.table-hover#electionTeller
+                    thead
+                        tr
+                            th Teller Url
+                            th Tunnel Port
+                    tbody
+        div.row
+            div.col-md-12
+                h3 Register Voters:
+                    span#voterCount
+            div.col-sm-12
+                a.btn.btn-primary#dumpVoters Download Voters
+            div.col-md-12
+                form#voterRegistration(style="display:none; padding-left:10px;")
+                    div.row
+                        div.col-md-12
+                            label(for='voter') Add Voter here: one email address each line.
+                            textarea.form-control(rows="10" cols="50" name='voter' style="resize:vertical" placeholder="voter email address" required)
+                    <br/>
+                    div.row
+                        div.col-md-12
+                            div#voterRegistrationMsg(style="display:none")
+                    div.row
+                        div.col-md-12
+                            button.btn.btn-primary(type='submit') Register
+                            button.btn.btn-primary#voterFreeze(type='button') Freeze Voters
+                    <br/>
+        div.row#electionState3(style="display:none")
+            div.col-md-12
+                h3 Result
+            div.col-md-12#electionResult
+            div.col-md-12
+                h3 Dumping
+                p Note: Summation data is only available after counting is finished.
+            div.col-sm-12
+                a.btn.btn-primary(href="dumpVotes" target="_blank") Dump Votes
+                a.btn.btn-primary(href="dumpSummation" target="_blank") Dump Summation
+
+        div.row
+            div.col-sm-12#electionMsg(style="display:none")
+            div.col-sm-12#electionState0(style="display:none")
+                input.btn.btn-primary#electionEdit(type='button' name='submit' value='Edit')
+                input.btn.btn-primary#electionFreeze(type='button' name='submit' value='Freeze')
+            div.col-sm-12#electionState1(style="display:none")
+                input.btn.btn-primary#electionOpen(type='button' name='submit' value='Open Election')
+            div.col-sm-12#electionState2(style="display:none")
+                a.btn.btn-primary#electionVote(href="vote") Vote
+                input.btn.btn-primary#electionClose(type='button' name='submit' value='Close Election')

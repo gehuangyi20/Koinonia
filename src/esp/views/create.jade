@@ -1,0 +1,48 @@
+extends layout
+
+block content
+    script(type='text/javascript' src='/assets/js/create.js')
+    div.jumbotron
+        h2='Create New Election'
+    div.container
+        form.form-horizontal(id='createElection' action='create' method='POST')
+            div.row
+                div.col-md-12
+                    label(for='electionName') Election Name
+                    input.form-control#electionName(name='electionName' type='text' required)
+                    div.alert.alert-danger#electionNameWarning(style="display:none; margin-top: 10px;") Election name is empty.
+            <br/>
+            div.row
+                div.col-md-12
+                    label(for='authServer') Authority Server
+                    input.form-control#authServer(name='authServer' type='text' placeholder='http://www.example.com' required)
+                    div.alert.alert-danger#authServerWarning(style="display:none; margin-top: 10px;") Auth server is not a valid url.
+            <br/>
+            div.row
+                div.col-md-12
+                    label(for='authTunnelPort') Authority Server Tunnel Port
+                    input.form-control#authTunnelPort(name='authTunnelPort' type='text' placeholder='1-65535' required)
+                    div.alert.alert-danger#authTunnelPortWarning(style="display:none; margin-top: 10px;") Tunnel Port is [1-65535].
+            <br/>
+            div.row
+                div.col-md-12
+                    label(for='espTunnelPort') ESP Tunnel Port
+                    input.form-control#espTunnelPort(name='espTunnelPort' type='text' placeholder='1-65535' required)
+                    div.alert.alert-danger#espTunnelPortWarning(style="display:none; margin-top: 10px;") Tunnel Port is [1-65535].
+            <br/>
+            div.row
+                div.col-md-12
+                    label(for='PosAddField') Positions
+                    div.input-group
+                        input.form-control#PosAddField(type="text" placeholder="Add new position")
+                        span.input-group-btn
+                            button.btn.btn-success#PosAddBtn(type="button") Add
+                    div.alert.alert-danger#PositionWarning(style="display:none; margin-top: 10px;") Election should have at least one position.
+                div.col-md-12#posDomBox
+            div.row
+                div.col-md-12
+                    div.alert.alert-danger#CreateElectionFail(style="display:none; margin-top: 10px;") Fail to create the election due to server issues.
+
+            div.row(id='buttons')
+                div.col-sm-12
+                    input.btn.btn-primary(type='submit' name='submit' value='Create')

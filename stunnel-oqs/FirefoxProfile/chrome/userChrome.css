@@ -1,0 +1,23 @@
+@namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+#TabsToolbar {
+    display: none!important
+}
+
+#appmenu-button {
+    display: none!important;
+}
+
+#toolbar-menubar {
+    display: none!important;
+}
+
+#PanelUI-menu-button {
+    display: none!important;
+}
+
+#nav-bar,
+#urlbar-container,
+#search-container,
+#openLocation {
+    display: none!important;
+}

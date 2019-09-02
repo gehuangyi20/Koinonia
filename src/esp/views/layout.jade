@@ -1,0 +1,14 @@
+doctype html
+html
+    include header
+    body
+        nav(class="navbar navbar-default")
+            div(class="container-fluid")
+                div(class="navbar-header")
+                    a( class="navbar-brand" href="/").='Ecliptic'
+                    ul(class="nav navbar-nav")
+                        li(class="active")
+                            a(href="/").='Home'
+                        li(class="active")
+                            a(href="/create").='Create Election'
+        block content
