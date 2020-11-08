@@ -1,1 +1,0 @@
-../../external/sjcl/sjcl.js
