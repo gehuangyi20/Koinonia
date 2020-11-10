@@ -1,4 +1,4 @@
-const sjcl = require("./sjcl");
+const sjcl = require("sjcl");
 const POINT_COMPRESSED = 2;
 const POINT_COMPRESSED_ODD = 3;
 const POINT_UNCOMPRESSED = 4;

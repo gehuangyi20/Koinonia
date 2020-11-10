@@ -4,4 +4,4 @@
 exports.Elliptic = require("./Elliptic");
 exports.parameter = require('./parameter');
 exports.PKI = require("./PKI");
-exports.sjcl = require("./sjcl");
+exports.sjcl = require("sjcl");
